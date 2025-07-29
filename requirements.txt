@@ -1,0 +1,7 @@
+pandas
+regex
+requests
+tqdm
+torch      # CPU-сборка автоматически подтянется
+open_clip_torch
+Pillow
