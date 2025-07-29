@@ -12,10 +12,12 @@ from PIL import Image
 from tqdm import tqdm
 
 # Input and output paths
-SRC = Path(__file__).with_name("vk.barkov.net-marketitems-2025-07-28_13-22-22.csv")
-if not SRC.exists():
-    SRC = Path(__file__).parent / "data" / SRC.name
-DEST = Path(__file__).with_name("vk_items_parsed.xlsx")
+# The script expects to live in the same directory as the CSV file
+# (for example ``C:\Parser`` on Windows). The result ``vk_items_parsed.xlsx``
+# will also be saved there.
+BASE_DIR = Path(__file__).resolve().parent
+SRC = BASE_DIR / "vk.barkov.net-marketitems-2025-07-28_13-22-22.csv"
+DEST = BASE_DIR / "vk_items_parsed.xlsx"
 
 # --- CLIP model for case color ---------------------------------------------
 device = "cuda" if torch.cuda.is_available() else "cpu"
