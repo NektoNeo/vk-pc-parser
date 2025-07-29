@@ -41,14 +41,14 @@ def clip_color(url: str) -> str:
 
 # --- Regular expressions ----------------------------------------------------
 CPU_RX = regex.compile(
-    r"(?i)\b(?:i[1-9]|r[3579]|r5)\s*-?\d{4,5}[a-z0-9]{0,4}\b"
+    r"(?i)\b(?:i[1-9]|r[3579]|ryzen\s*[3579])\s*-?\d{4,5}[a-z0-9]{0,4}\b"
 )
 CPU_HINT = regex.compile(r"(проц|cpu)", regex.I)
 GPU_RX = regex.compile(r"(?i)\b(?:rtx|gtx|rx|arc)\s*-?\d{3,4}(?:\s?(?:super|ti))?\b")
 RAM_OK = regex.compile(r"(оператив|озу|ddr|ram)", regex.I)
 RAM_BAD = regex.compile(r"(rtx|gtx|rx|gpu|видеокарт)", regex.I)
 RAM_RX = regex.compile(r"\b(8|16|32|48|64|96|128)\s*(?:gb|гб)\b", regex.I)
-SPLIT_RX = regex.compile(r"[;\n|•🟣]")
+SPLIT_RX = regex.compile(r"[;\n|•🟣🟢]")
 COL_RX = regex.compile(r"корпус[^:]*:\s*(white|wh|белый|black|bk|ч[её]рный|черный)", regex.I)
 COLORS = {"white": "White", "wh": "White", "белый": "White", "black": "Black", "bk": "Black", "чёрный": "Black", "черный": "Black"}
 
